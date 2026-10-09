@@ -83,12 +83,12 @@ h3 {
 }
 
 h1 {
-    color: #ff66cc;
+    color: #0be47f;
 
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 0;
 
-    text-shadow: 0 0 4px rgba(255, 102, 204, 0.25);
+    text-shadow: 0 0 0px rgba(255, 102, 204, 0.25);
 }
 
 h2 {
@@ -104,6 +104,11 @@ h3 {
 
     margin-top: 0;
     margin-bottom: 15px;
+}
+
+h6 {
+    margin-top: 0;
+    
 }
 
 /* ===== Text ===== */

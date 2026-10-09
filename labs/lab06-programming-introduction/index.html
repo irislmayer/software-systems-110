@@ -14,20 +14,21 @@
         <aside class="sidebar">
 
             <h2>Program Rules</h2>
-
+            <h1>Iris Mayer</h1>
+            <h6>also rules maybe</h6>
             <div class="rules">
 
-                If doISayHello is true<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;Say "Hello, World!"<br><br>
+                If doIWishIWasAFish is Yes<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Give an appropriate show of support or judgment, depending.<br><br>
 
-                Otherwise, if doISayGoodbye is true<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;Say "Goodbye, World!"<br><br>
+                If doIWishIWasEatingFish is Yes<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Give an appropriate suggestion or admonishment, depending.<br><br>
 
-                Otherwise<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;Say "Why am I even out here? It's cold."<br><br>
+                If doIWishIWasAFish is No and doIWishIWasEatingFish is No<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Give some affirming encouragement.<br><br>
 
                 Always<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;Say something so the world knows you are going inside now.
+                &nbsp;&nbsp;&nbsp;&nbsp;Say something so the user knows you want to go swimming.
 
             </div>
 
@@ -54,38 +55,38 @@
 
                 <div class="variable-card">
 
-                    <h3>Hello Option</h3>
+                    <h3>Be a Fish Option</h3>
 
                     <p>
-                        Should I say "Hello, World!"?
+                        Do I wish I was a fish?
                     </p>
 
                     <label for="helloInput">
-                        Set <strong>doISayHello</strong> to:&nbsp;
+                        Set <strong>doIWishIWasAFish</strong> to:&nbsp;
                     </label>
 
                     <select id="helloInput">
-                        <option value="true">true</option>
-                        <option value="false" selected>false</option>
+                        <option value="true">Yes</option>
+                        <option value="false" selected>No</option>
                     </select>
 
                 </div>
 
                 <div class="variable-card">
 
-                    <h3>Goodbye Option</h3>
+                    <h3>Eating Fish Option</h3>
 
                     <p>
-                        Should I say "Goodbye, World!"?
+                        Do I wish I was eating fish?
                     </p>
 
                     <label for="goodbyeInput">
-                        Set <strong>doISayGoodbye</strong> to:&nbsp;
+                        Set <strong>doIWishIWasEatingFish</strong> to:&nbsp;
                     </label>
 
                     <select id="goodbyeInput">
-                        <option value="true">true</option>
-                        <option value="false" selected>false</option>
+                        <option value="true">Yes</option>
+                        <option value="false" selected>No</option>
                     </select>
 
                 </div>
@@ -106,15 +107,15 @@
 
     <script>
 
-        let doISayHello = false;
-        let doISayGoodbye = false;
+        let doIWishIWasAFish = false;
+        let doIWishIWasEatingFish = false;
 
         function updateVariables() {
 
-            doISayHello =
+            doIWishIWasAFish =
                 document.getElementById("helloInput").value == "true";
 
-            doISayGoodbye =
+            doIWishIWasEatingFish =
                 document.getElementById("goodbyeInput").value == "true";
 
         }
@@ -145,15 +146,23 @@
                 doISayHello = true
                 doISayGoodbye = true
              
-                Observation:
-            
+                Observation: Output is "Hello, World!
+                ...
+                ...
+                I am tired of being outside. I am going inside now.
+                Because the first "if" statement was true, the program essentially ignored the else if statement being true because it was already told to display "Hello, World!"
                 ***********************************************************************
                 
                 Test #2
                 doISayHello = false
                 doISayGoodbye = false
              
-                Observation:
+                Observation: Output is "Why am I even out here? It's cold.
+                ...
+                ...
+                I am tired of being outside. I am going inside now."
+                Because with both the IF and Else If statements being false, the only thing left for the program to display was
+                 the else statment.
             
                 ***********************************************************************
 
@@ -161,41 +170,54 @@
                 doISayHello = true
                 doISayGoodbye = false
              
-                Observation:
-
+                Observation: Output is "Hello, World!
+                ...
+                ...
+                I am tired of being outside. I am going inside now."
+                The same output as test #1, because even if the program had thought it needed to check the else if statement 
+                (it did not, since the if was true), the else if statement was false so would not be displayed.
                 ***********************************************************************    
 
                 Test #4
                 doISayHello = false
                 doISayGoodbye = true
              
-                Observation:
-                
+                Observation: Output is "Goodbye, World!
+                ...
+                ...
+                I am tired of being outside. I am going inside now."
+                The first If statement was false, which prompted the program to check the else if statement, which was true this
+                time, so the program displayed "Goodbye, World!", and the final message, as always.
             */
     
 
             let message;
             let finalMessage;
 
-            if(doISayHello == true) {
+            if(doIWishIWasAFish == true && doIWishIWasEatingFish == false) {
 
-                // Assign a greeting message.
-                message = "Hello, World!";
+                // Assign a show of support.
+                message = "Why, you're the prettiest fish in the ocean!";
 
-            } else if(doISayGoodbye == true) {
+            } if(doIWishIWasAFish == true && doIWishIWasEatingFish == true) {
 
-                // Assign a goodbye message.
-                message = "Goodbye, World!";
+                // Assign a judgmental comment.
+                message = "hey. That's kind of disturbing.";
 
-            } else {
+            } if (doIWishIWasAFish == false && doIWishIWasEatingFish == false) {
 
-                // Assign a default message.
-                message = "Why am I even out here? It's cold.";
+                // Assign an affirmation.
+                message = "It's good to be happy with the way things are, fish related circumstances aside.";
+               
+            } if (doIWishIWasAFish == false && doIWishIWasEatingFish == true) {
+
+                 // Assign a helpful suggestion.
+                message = "Perhaps an autumnal stroll to the local market?";
 
             }
 
             // Assign a message that always displays.
-            finalMessage = "I am tired of being outside. I am going inside now.";
+            finalMessage = "<b>I</b> certainly feel like dipping my toes in some water.";
 
             displayMessages(message, finalMessage);
 
